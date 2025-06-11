@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nice Digital Clock</title>
+  <style>
+    body {
+      background: #282c34;
+      color: #61dafb;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+
+    #clock {
+      font-size: 5rem;
+      letter-spacing: 4px;
+      font-weight: bold;
+      padding: 10px 20px;
+      background: #20232a;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #61dafb88;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Current Time</h1>
+  <div id="clock">--:--:--</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const h = now.getHours().toString().padStart(2, '0');
+      const m = now.getMinutes().toString().padStart(2, '0');
+      const s = now.getSeconds().toString().padStart(2, '0');
+      document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
